@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spotipple</title>
+    <!--    <link rel="stylesheet" href="assets/css/style.css">-->
+</head>
+<body>
+<!-- header -->
+<div th:replace="header :: header"></div>
+<!-- //header -->
+<h2>Welcome to Spotipple</h2>
+<button th:onclick="getSpotifyUserLogin()">Login</button>
+
+<script th:inline="javascript">
+<!--const userLoginBtn = document.querySelector('#userLogin');-->
+
+
+const getSpotifyUserLogin = () => {
+        fetch("http://localhost:8080/login")
+        .then((response) => response.text())
+        .then(response => {
+        window.location.replace(response);
+        })
+    }
+
+
+    console.log("welcome");
+
+
+<!--userLoginBtn.addEventListener('click', getSpotifyUserLogin);-->
+
+
+</script>
+</body>
+</html>
+
+
