@@ -20,7 +20,7 @@ import java.net.URI;
 
 
 @Controller
-public class AuthenticationController {
+public class SpotifyAuthenticationController {
 
     @Autowired
     private ModelMapper mapper;
