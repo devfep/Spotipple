@@ -13,44 +13,11 @@
 </head>
 <body>
 
-<!-- ////////////////////////////////////////////////////////////////////////////////////////
-                               START SECTION 1 - THE NAVBAR SECTION
-/////////////////////////////////////////////////////////////////////////////////////////////-->
-<!--<div th:replace="header :: header"></div>-->
 
 <div class="container d-flex justify-content-center align-content-lg-center">
-    <h1 th:text="${'Welcome ' + username}"></h1>
-    <!--<button th:onclick="loginWithSpotify()">Get Spotify Playlists</button>-->
+    <h1 th:text="Welcome "></h1>
+    <button th:onclick="loginWithSpotify()">Get Spotify Playlists</button>
 </div>
-
-
-<div class="site-section">
-
-    <div class="table-responsive-md">
-        <div class="row mb-4">
-            <div class="col-md-7">
-                <h3 class="heading-21921">Playlists</h3>
-                <button th:onclick="syncWithDeezer()">Transfer to Deezer</button>
-            </div>
-        </div>
-        <table class="table table-striped table-hover">
-            <thead class="table-dark">
-            <tr>
-                <th scope="col">Playlist Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${listOfPlaylists.empty}">
-                <td colspan="2"> No Playlist Available</td>
-            </tr>
-            <tr th:each="playlist: ${listOfPlaylists}">
-                <td th:text="${playlist.name}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
 
 <script th:inline="javascript">
 
@@ -65,7 +32,7 @@ const getPlaylist = () => {
     }
 
 
-    const syncWithDeezer = () => {
+    const loginWithDeezer = () => {
         fetch("http://localhost:8080/deezer/login")
      .then((response) => response.text())
         .then(response => {
@@ -87,6 +54,8 @@ const getPlaylist = () => {
 
 
 <!--userLoginBtn.addEventListener('click', getSpotifyUserLogin);-->
+
+
 
 
 

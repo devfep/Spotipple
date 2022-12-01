@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpoDeezy</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////
+                               START SECTION 1 - THE NAVBAR SECTION  
+/////////////////////////////////////////////////////////////////////////////////////////////-->
+<div th:replace="header :: header"></div>
+
+
+<div class="container">
+    <div class="row mt-5">
+        <section class="w3l-contact py-5" id="contact">
+            <div class="container py-md-5 py-4 justify-content-center">
+                <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                    <h3 class="title-style">Log In</h3>
+                </div>
+                <div class="row login-block">
+                    <div class="col-md-6 login-center mx-auto">
+                        <form th:action="@{/login}" method="post" class="signin-form">
+                            <div class="col-md-6 login-center input-grids mx-auto">
+                                <li class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"
+                                    th:text="${errorMessage}"/>
+                                <input type="text" name="username" id="username" placeholder="Username"
+                                       class="login-input"/>
+                                <input type="password" name="password" id="password" placeholder="Password"
+                                       class="login-input"/>
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            </div>
+                            <div class="col-md-6 login-center mx-auto">
+                                <button class="btn btn-style btn-style-3 text-left">Log In</button>
+                                <a th:href="@{/public/register}" class="new-user text-right">New User ?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
