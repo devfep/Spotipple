@@ -20,6 +20,7 @@ import java.net.URI;
 
 
 @Controller
+@RequestMapping("spotify")
 public class SpotifyAuthenticationController {
 
     @Autowired
@@ -35,7 +36,7 @@ public class SpotifyAuthenticationController {
     static String scope = "user-read-private user-read-email user-top-read playlist-read-private";
 
 
-    private static final URI redirectUri = SpotifyHttpManager.makeUri("http://localhost:8080/callback");
+    private static final URI redirectUri = SpotifyHttpManager.makeUri("http://localhost:8080/spotify/callback");
     private String code = "";
 
     public static final SpotifyApi spotifyApi = new SpotifyApi.Builder()
