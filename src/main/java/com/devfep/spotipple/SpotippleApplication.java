@@ -27,10 +27,6 @@ public class SpotippleApplication {
         return new Gson();
     }
 
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
-    }
 
 
     @Bean
